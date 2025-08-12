@@ -1,8 +1,12 @@
+import abstract_factory.IngredientsFactory;
+
 public class ChicagoStyleCheesePizza extends Pizza{
-    public ChicagoStyleCheesePizza(){
+    IngredientsFactory ingredientsFactory;
+    public ChicagoStyleCheesePizza(IngredientsFactory ingredientsFactory){
         name = "Chicago style pizza";
-        dough = "Thick crust";
-        sauce = "Soy sauce";
+        dough = ingredientsFactory.createDough();
+        sauce = ingredientsFactory.createSauce();
+        cheese = ingredientsFactory.createCheese();
         toppings.add("Jalapeno");
         toppings.add("Capsicum");
         toppings.add("Tomato");
